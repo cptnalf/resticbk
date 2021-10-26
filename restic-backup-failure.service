@@ -1,0 +1,21 @@
+# /etc/systemd/system/restic-backup-failure.service
+[Unit]
+Description=Restic backup report failures
+Requires=network.target
+
+[Service]
+Type=oneshot
+# email notification with logs. (%n is systemd unit name.)
+ExecStartPre=-/home/restic/bin/unit_failure.sh "%n" "work@alfors.org"
+ExecStart=/home/restic/bin/restic_exporter.sh
+
+# security hardening
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+PrivateDevices=true
+MemoryDenyWriteExecute=true
+ReadWritePaths=/var/lib/node-exporter

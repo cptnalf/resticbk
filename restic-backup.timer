@@ -1,0 +1,12 @@
+# /etc/systemd/system/restic-backup.timer
+[Unit]
+Description=Restic Backup Timer
+
+[Timer]
+# see man 7 systemd.time for possible formats.
+# everyday at 01:01:00
+OnCalendar=*-*-* 01:01:00
+RandomizeDelaySec=360
+
+[Install]
+WantedBy=timers.target
