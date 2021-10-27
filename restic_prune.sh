@@ -7,7 +7,7 @@ source '/etc/restic/env.sh'
 
 # check repo first.
 
-/usr/sbin/restic check
+restic check
 
 # keep the last 4 snapshots
 # keep only 1 snapshot for each of the last 7 days
@@ -24,7 +24,7 @@ if [ $(date +%A) == "Saturday" ]; then
       --keep-yearly 2 \
       --keep-within 20d \
       --prune \
-      --host ${RESTIC_HOST}
+      --host $(hostname)
   echo "Finished Pruning"
 else
   echo "Skipped pruning"

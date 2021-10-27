@@ -6,8 +6,8 @@ Requires=network.target
 [Service]
 Type=oneshot
 # email notification with logs. (%n is systemd unit name.)
-ExecStartPre=-/home/restic/bin/unit_failure.sh "%n" "work@alfors.org"
-ExecStart=/home/restic/bin/restic_exporter.sh
+ExecStartPre=-/usr/local/bin/unit_failure.sh "%n" "work@alfors.org"
+ExecStart=/usr/local/bin/restic_exporter.sh
 
 # security hardening
 PrivateTmp=true
