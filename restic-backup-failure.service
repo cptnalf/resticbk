@@ -18,4 +18,4 @@ ProtectKernelTunables=true
 ProtectControlGroups=true
 PrivateDevices=true
 MemoryDenyWriteExecute=true
-ReadWritePaths=/var/lib/node-exporter
+ReadWritePaths=/var/lib/node_exporter

@@ -3,7 +3,7 @@
 set -eEuo pipefail
 
 UNIT='restic-backup.service' # needs to include .service.
-METRICS_FILE='/var/lib/node-exporter/restic-backup.prom'
+METRICS_FILE='/var/lib/node_exporter/restic-backup.prom'
 TMP_FILE="$(mktemp ${METRICS_FILE}.XXXXXXX)"
 # list of labels attached to all series, comma separated, without trailing comma.
 COMMON_LABELS="unit=\"${UNIT}\""
