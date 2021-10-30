@@ -5,6 +5,9 @@ source '/etc/restic/env.sh'
 
 echo "Starting restic backup"
 
+echo 'Backups src: $BACKUP_LIST_SRC'
+echo 'Repository: $RESTIC_REPOSITORY'
+
 if ! restic snapshots 2>&1 > /dev/null; then
   restic init
 fi

@@ -24,4 +24,4 @@ ProtectKernelTunables=true
 ProtectControlGroups=true
 PrivateDevices=true
 MemoryDenyWriteExecute=true
-ReadWritePaths=/var/cache/restic /t03_stash/restic/foo /var/lib/node_exporter
+ReadWritePaths=/var/cache/restic /var/lib/node_exporter
