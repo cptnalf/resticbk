@@ -2,6 +2,7 @@
 set -eu
 
 source '/etc/restic/env.sh'
+EXCLUDE_FILE=/etc/restic/excludes
 
 echo "Starting restic backup"
 
@@ -26,6 +27,7 @@ fi
 restic backup \
   --one-file-system \
   --exclude-caches \
+  --exclude-file $EXCLUDE_FILE \
   $BACKUP_LIST
 
 echo "Finished restic backup"
