@@ -5,8 +5,18 @@ echo "Start pruning restic backups"
 
 source '/etc/restic/env.sh'
 
-# check repo first.
+MYHOST="$(hostname)"
 
+if [ -z "$MYHOST" ]; then
+  echo "Skipped prune because empty host"
+  exit 0
+fi
+
+if [ "$MYHOST" != "$REPO_HOST" ]; then
+  exit 0
+fi
+
+# check repo first.
 restic check
 
 # keep the last 4 snapshots
@@ -24,7 +34,7 @@ if [ $(date +%A) == "Saturday" ]; then
       --keep-yearly 2 \
       --keep-within 20d \
       --prune \
-      --host $(hostname)
+      --host $MYHOST
   echo "Finished Pruning"
 else
   echo "Skipped pruning"
