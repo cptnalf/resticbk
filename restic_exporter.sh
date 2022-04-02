@@ -58,6 +58,9 @@ function convert_to_bytes() {
              'TB')
                  factor=1000000000000
                  ;;
+             'B')
+                factor=1
+                ;;
              *)
                  echo "Unsupported unit $unit"
                  return 1
