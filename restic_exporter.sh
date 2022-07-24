@@ -35,35 +35,36 @@ function convert_to_bytes() {
 
   case $unit in
     'KiB')
-      factor=1024
-      ;;
+        factor=1024
+        ;;
     'KB')
-      factor=1000
-      ;;
+        factor=1000
+        ;;
     'MiB')
-      factor=1048576
-      ;;
-             'MB')
-                 factor=1000000
-                 ;;
-             'GiB')
-                 factor=1073741824
-                 ;;
-             'GB')
-                 factor=1000000000
-                 ;;
-             'TiB')
-                 factor=1099511627776
-                 ;;
-             'TB')
-                 factor=1000000000000
-                 ;;
-             'B')
-                factor=1
-                ;;
-             *)
-                 echo "Unsupported unit $unit"
-                 return 1
+        factor=1048576
+        ;;
+    'MB')
+        factor=1000000
+        ;;
+    'GiB')
+        factor=1073741824
+        ;;
+    'GB')
+        factor=1000000000
+        ;;
+    'TiB')
+        factor=1099511627776
+        ;;
+    'TB')
+        factor=1000000000000
+        ;;
+    'B')
+        factor=1
+        ;;
+    *)
+        echo "Unsupported unit $unit"
+        return 1
+        ;;
   esac
 
   echo $(awk 'BEGIN {printf "%.0f", '"${value}*${factor}"'}')

@@ -14,7 +14,7 @@ echo "Repository: $RESTIC_REPOSITORY"
 #fi
 
 # check if repo is ok.
-if [ "$(hostname)" -eq "$REPO_HOST" ]; then
+if [ "$(hostname)" == "$REPO_HOST" ]; then
   restic check
 fi
 
